@@ -2,6 +2,7 @@ import axios from "axios"
 import { AuthContext } from "context/auth"
 import { LoadingContext } from "context/loading"
 import { postLogin, postSignin } from "helpers/auth"
+import { ILoginRequest, ISigninRequest } from "interfaces/auth"
 import { useContext } from "react"
 
 export const useAuth = () => {
@@ -16,9 +17,9 @@ export const useAuth = () => {
         axios.defaults.headers.Authorization = `Bearer ${token}`
         setIsLogged(true)
     }
-    const startLogin = ({ username, password, remember }: { username: string, password: string, remember: boolean }) => {
+    const startLogin = ({ email, password, remember }: ILoginRequest & {remember:boolean}) => {
         setLoading(true)
-        postLogin({ username, password, })
+        postLogin({ email, password, })
             .then(({ token }) => {
                 login({ remember, token })
             })
@@ -27,9 +28,9 @@ export const useAuth = () => {
             })
     }
     
-    const startSignin = ({ username, password }: { username: string, password: string }) => {
+    const startSignin = ({ email, password }: ISigninRequest) => {
         setLoading(true)
-        postSignin({ username, password, })
+        postSignin({ email, password, })
             .then(({ token }) => {
                 login({ remember:false, token })
             })

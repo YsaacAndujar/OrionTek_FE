@@ -1,6 +1,10 @@
 export interface ILoginRequest {
-    username: string,
+    email: string,
     password: string
+}
+
+export interface ISigninRequest extends ILoginRequest {
+
 }
 
 export interface ILoginResponse {
@@ -8,11 +12,11 @@ export interface ILoginResponse {
 }
 
 export interface IForgotPasswordRequest {
-    username: string,
+    email: string,
 }
 
 export interface IRecoverPasswordRequest {
-    username: string,
+    email: string,
     code: string,
     password: string,
 }

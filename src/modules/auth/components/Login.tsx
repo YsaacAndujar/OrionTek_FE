@@ -24,9 +24,9 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         labelCol={{ span: 5, offset: 0 }}
       >
         <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: requiredMsg }]}
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: requiredMsg },{ type: "email", message: "Invalid Email" }]}
         >
           <Input />
         </Form.Item>

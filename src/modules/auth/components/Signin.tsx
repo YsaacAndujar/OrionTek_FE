@@ -12,20 +12,20 @@ export const Signin = ({ onChangeLogin }:SigninProps) => {
   const { startSignin } = useAuth()
   return (
     <>
-      <Title level={2}>Registro</Title>
+      <Title level={2}>Signin</Title>
       <Form
         name="basic"
         initialValues={{ remember: true }}
         style={{ padding: '20px' }}
         labelCol={{ span: 5, offset:0 }}
-        onFinish={({username, password}:{username:string, password:string})=> {
-          startSignin({username, password})
+        onFinish={({email, password}:{email:string, password:string})=> {
+          startSignin({email, password})
         }}
       >
         <Form.Item
-          label="User"
-          name="username"
-          rules={[{ required: true, message: requiredMsg }]}
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: requiredMsg },{ type: "email", message: "Invalid Email" }]}
         >
           <Input />
         </Form.Item>
