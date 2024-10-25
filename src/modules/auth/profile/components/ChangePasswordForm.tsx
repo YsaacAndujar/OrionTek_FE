@@ -13,18 +13,10 @@ export const ChangePasswordForm = () => {
         name="basic"
         size="large"
         form={form}
-        onFinish={onSubmit}
+        onFinish={({newPassword:password})=> onSubmit({password})}
         style={{ padding: '20px' }}
         labelCol={{ span: 5, offset: 0 }}
       >
-        <Form.Item
-          label="Old password"
-          name="oldPassword"
-          rules={[{ required: true, message: requiredMsg }]}
-        >
-          <Input.Password />
-        </Form.Item>
-
         <Form.Item
           label="New password"
           name="newPassword"

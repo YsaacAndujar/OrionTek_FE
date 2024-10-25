@@ -1,14 +1,14 @@
 import axios from "axios"
-import { IPasswordRequest, IProfile } from "interfaces/profile"
+import { IChangePassword, IProfile, IUpdateProfile } from "interfaces/profile"
 
 export const getProfile  = () =>{
-    return axios.get<never, IProfile>(`/auth/profile`, )
+    return axios.get<never, IProfile>(`/authentication/me`, )
 }
 
-export const updateProfile  = (profile: IProfile) =>{
-    return axios.put(`/auth/profile`, profile)
+export const updateProfile  = (profile: IUpdateProfile) =>{
+    return axios.put(`/authentication/me`, profile)
 }
 
-export const updatePassword = (data: IPasswordRequest) =>{
-    return axios.put(`/auth/password`, data)
+export const updatePassword = (data: IChangePassword) =>{
+    return axios.put(`/authentication/changePassword`, data)
 }

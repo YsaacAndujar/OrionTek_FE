@@ -1,7 +1,7 @@
-import { IPasswordRequest } from './../../../interfaces/profile';
 import { Form } from "antd";
 import { LoadingContext } from "context/loading";
 import { updatePassword } from "helpers/profile";
+import { IChangePassword } from 'interfaces/profile';
 import { useContext } from "react";
 import { showModal } from "utils/modal";
 
@@ -9,9 +9,9 @@ export const useChangePassword = () => {
     const [form] = Form.useForm();
     const { setLoading } = useContext(LoadingContext)
 
-    const onSubmit = ({ confirm, ...values }: any) =>{
+    const onSubmit = (values: IChangePassword) =>{
         setLoading(true)
-        updatePassword(values as IPasswordRequest)
+        updatePassword(values )
         .then(()=>{
             showModal({title: 'Password updated', text:'Password updated successfully', type:'success'})
             form.resetFields()

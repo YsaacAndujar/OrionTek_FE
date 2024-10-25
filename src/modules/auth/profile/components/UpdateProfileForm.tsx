@@ -20,8 +20,8 @@ export const UpdateProfileForm = () => {
                 labelCol={{ span: 5, offset: 0 }}
             >
                 <Form.Item
-                    label="Username"
-                    name="username"
+                    label="Email"
+                    name="email"
                     rules={[{ required: true, message: requiredMsg }]}
                 >
                     <Input disabled={!isEdit} />
