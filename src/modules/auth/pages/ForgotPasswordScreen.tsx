@@ -1,10 +1,10 @@
 import { Button, Col, Form, Input, Layout, Row, theme, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { useNavigate } from "react-router-dom";
-import { contentStyle, divContainerStyle, layoutStyle } from "../styles/layoutStyles";
-import { useForgotPassword } from "../hooks/useForgotPassword";
 import { requiredMsg } from "utils/form";
-const { Title,Text } = Typography;
+import { useForgotPassword } from "../hooks/useForgotPassword";
+import { contentStyle, divContainerStyle, layoutStyle } from "../styles/layoutStyles";
+const { Title } = Typography;
 
 export const ForgotPasswordScreen = () => {
     const {
@@ -23,7 +23,6 @@ export const ForgotPasswordScreen = () => {
           }}
         >
       <Title level={2}>Forgot password</Title>
-      <Text style={{color:'red'}}>I'm supposed to send you a link to your email to recover the password, but for now I'll just do an example because I can't send emails.</Text>
       <Form
         name="basic"
         initialValues={{ remember: true }}
@@ -32,8 +31,8 @@ export const ForgotPasswordScreen = () => {
         onFinish={onSubmit}
       >
         <Form.Item
-          label="Username"
-          name="username"
+          label="Email"
+          name="email"
           rules={[{ required: true, message: requiredMsg }]}
         >
           <Input />

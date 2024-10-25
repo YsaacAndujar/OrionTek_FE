@@ -16,7 +16,7 @@ export interface IForgotPasswordRequest {
 }
 
 export interface IRecoverPasswordRequest {
-    email: string,
+    userId: number,
     code: string,
     password: string,
 }

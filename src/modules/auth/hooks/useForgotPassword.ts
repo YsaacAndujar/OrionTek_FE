@@ -1,5 +1,5 @@
 import { LoadingContext } from "context/loading"
-import { postForgotPassword } from "helpers/auth"
+import { postRequestPasswordRecovery } from "helpers/auth"
 import { IForgotPasswordRequest } from "interfaces/auth"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
@@ -10,19 +10,19 @@ export const useForgotPassword = () => {
 
     const navigate = useNavigate()
 
-    const onSended = () =>{
-        navigate('/auth/recover-password')
+    const onSended = () => {
+        navigate('/auth')
     }
 
-    const onSubmit = (values: IForgotPasswordRequest) =>{
+    const onSubmit = (values: IForgotPasswordRequest) => {
         setLoading(true)
-        postForgotPassword(values)
-        .then(()=>{
-            showModal({title: 'Link sended', text:"Link sended successfully", type:'success'})
-            .then(onSended)
-        }).finally(()=>{
-            setLoading(false)
-        })
+        postRequestPasswordRecovery(values)
+            .then(() => {
+                showModal({ title: 'Pasword recovery request completed', text: "A email was sent to your email with instructions on how to recover your password", type: 'success' })
+                    .then(onSended)
+            }).finally(() => {
+                setLoading(false)
+            })
     }
-  return { onSubmit }
+    return { onSubmit }
 }

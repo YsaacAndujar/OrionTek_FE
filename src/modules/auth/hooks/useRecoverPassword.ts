@@ -8,7 +8,7 @@ export const useRecoverPassword = () => {
     const { setLoading } = useContext(LoadingContext)
 
     const { login } = useAuth()
-    const onSubmit = ({confirm, ...values}: any) =>{
+    const onSubmit = (values: IRecoverPasswordRequest) =>{
         setLoading(true)
         postRecoverPassword(values as IRecoverPasswordRequest)
         .then(({token})=>{
