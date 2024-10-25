@@ -10,7 +10,7 @@ export const AppRouter = () => {
     <Router>
       <Routes>
         <Route element={<PrivateRoute isAuthenticated={isLogged} />}>
-          <Route path="/clients" element={<ClientsRouter />} />
+          <Route path="/clients/*" element={<ClientsRouter />} />
           <Route path="/profile/*" element={<ProfileRouter />} />
 
         </Route>

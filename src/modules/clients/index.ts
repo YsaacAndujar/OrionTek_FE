@@ -1,5 +1,5 @@
-import { ClientsAddScreen } from "./ClientsAddScreen";
-import { ClientsDetailsScreen } from "./ClientsDetailsScreen";
-import { ClientsListScreen } from "./ClientsListScreen";
+import { ClientsAddScreen } from "./pages/ClientsAddScreen";
+import { ClientsDetailsScreen } from "./pages/ClientsDetailsScreen";
+import { ClientsListScreen } from "./pages/ClientsListScreen";
 
 export { ClientsDetailsScreen, ClientsListScreen, ClientsAddScreen }

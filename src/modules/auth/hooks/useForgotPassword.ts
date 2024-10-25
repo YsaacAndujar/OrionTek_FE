@@ -18,7 +18,7 @@ export const useForgotPassword = () => {
         setLoading(true)
         postRequestPasswordRecovery(values)
             .then(() => {
-                showModal({ title: 'Pasword recovery request completed', text: "A email was sent to your email with instructions on how to recover your password", type: 'success' })
+                showModal({ title: 'Pasword recovery request completed', text: "An email was sent to your email with instructions on how to recover your password", type: 'success' })
                     .then(onSended)
             }).finally(() => {
                 setLoading(false)

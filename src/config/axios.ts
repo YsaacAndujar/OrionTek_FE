@@ -11,8 +11,18 @@ const removeLogin = () =>{
 export const setupAxios = (): void => {
   const genericErroMsg = 'Unkown error. Check your network and try later.'
     axios.interceptors.response.use(
-      ({data}) => {
-        return data;
+      (resp) => {
+        
+        const totalEntities=resp.headers["totalentities"]
+        const totalPages=resp.headers["totalpages"]
+        if(totalEntities && totalPages){
+          return {
+            totalEntities: parseInt(totalEntities),
+            totalPages: parseInt(totalPages),
+            data: resp.data
+          }
+        }
+        return resp.data;
       },
       (error) => {
         if(!error.response){

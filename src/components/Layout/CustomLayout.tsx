@@ -22,17 +22,8 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           style={{ flex: 1, minWidth: 0 }}
           key={0}
         >
-          <Menu.Item key='trades'>
-            <Link to='/trades'>Trades</Link>
-          </Menu.Item>
-          <Menu.Item key='requests'>
-            <Link to='/requests'>Requests</Link>
-          </Menu.Item>
-          <Menu.Item key='collection'>
-            <Link to='/collection'>My collection</Link>
-          </Menu.Item>
-          <Menu.Item key='history'>
-            <Link to='/history'>History</Link>
+          <Menu.Item key='clients'>
+            <Link to='/clients'>Clients</Link>
           </Menu.Item>
           <Menu.SubMenu key="profileMenu" title="Profile" style={{ marginLeft: 'auto' }}>
             <Menu.Item key="profile">
